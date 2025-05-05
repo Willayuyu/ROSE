@@ -64,3 +64,26 @@ def load_review(reader: Reader = None) -> List:
     )
     reader = Reader() if reader is None else reader
     return reader.read(fpath, fmt="UIReview", sep="\t")
+
+
+def load_sentiment(reader: Reader = None) -> List:
+    """Load the user-item-sentiments
+    The dataset was constructed by the method described in the reference paper.
+
+    Parameters
+    ----------
+    reader: `obj:cornac.data.Reader`, default: None
+        Reader object used to read the data.
+
+    Returns
+    -------
+    data: array-like
+        Data in the form of a list of tuples (user, item, [(aspect, opinion, sentiment), (aspect, opinion, sentiment), ...]).
+
+    References
+    ----------
+    Gao, J., Wang, X., Wang, Y., & Xie, X. (2019). Explainable Recommendation Through Attentive Multi-View Learning. AAAI.
+    """
+    fpath = "cornac/datasets/amazon_digital_music/lexicon.txt"
+    reader = Reader() if reader is None else reader
+    return reader.read(fpath, fmt='UITup', sep=',', tup_sep=':')

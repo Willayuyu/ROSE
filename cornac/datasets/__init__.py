@@ -25,4 +25,7 @@ from . import netflix
 from . import tafeng
 from . import tradesy
 from . import yoochoose
-from . import goodreads
+from . import amazon_digital_music
+from . import yelp
+from . import ratebeer
+# from . import goodreads
